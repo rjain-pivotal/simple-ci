@@ -1,0 +1,77 @@
+###############
+# PCF
+###############
+# All application current target to the same space
+cf-api-url: https://api.pcf.borgescloud.com
+cf-system-domain: pcf.borgescloud.com
+cf-app-domain: pcf.borgescloud.com
+cf-username: mborges
+cf-org: Borges-Org
+cf-skip-ssl: true
+cf-space: qa
+cf-uat-space: uat
+cf-prod-space: prod
+
+# PCF Service
+# can be used by one or more applications
+cf-oracle-service-url: c2-54-149-58-221.us-west-2.compute.amazonaws.com:49161/Xe
+cf-oracle-service-username: system
+cf-oracle-service-password: oracle
+cf-redis-service: p-redis shared-vm redis
+cf-rabbit-service: p-rabbitmq standard rabbit
+
+cf-uat-oracle-service-url: c2-54-149-58-221.us-west-2.compute.amazonaws.com:49161/Xe
+cf-uat-oracle-service-username: system
+cf-uat-oracle-service-password: oracle
+cf-uat-redis-service: p-redis shared-vm redis
+cf-uat-rabbit-service: p-rabbitmq standard rabbit
+
+cf-prod-oracle-service-url: c2-54-149-58-221.us-west-2.compute.amazonaws.com:49161/Xe
+cf-prod-oracle-service-username: system
+cf-prod-oracle-service-password: oracle
+cf-prod-redis-service: p-redis dedicated-vm redis
+cf-prod-rabbit-service: p-rabbitmq standard rabbit
+
+
+############
+# Pipeline
+############
+pipeline-git-uri: https://github.com/mborges-pivotal/simple-ci.git
+pipeline-git-branch: master
+
+############# VERSION
+s3-endpoint: s3.amazonaws.com
+s3-bucket-milestone: simple-release-candidates
+s3-bucket-release: simple-release
+
+simple-git-version-uri: git@github.com:mborges-pivotal/simple-ci.git
+simple-git-version-branch: master
+
+git-private-key: |
+  -----BEGIN RSA PRIVATE KEY-----
+  ...
+  -----END RSA PRIVATE KEY-----
+
+#############
+# simple PHP
+#############
+cf-simple-php-name: simple-php
+cf-simple-php-host: simple-php
+cf-simple-php-services: oracle, redis, rabbit
+
+simple-php-git-uri: https://github.com/mborges-pivotal/simple-php.git
+simple-php-git-branch: master
+
+
+#############
+# simple UI
+#############
+cf-simple-ui-name: simple-ui
+cf-simple-ui-host: simple-ui
+cf-simple-ui-services: 
+
+simple-ui-git-uri: https://github.com/mborges-pivotal/simple-ui.git
+simple-ui-git-branch: master
+
+
+

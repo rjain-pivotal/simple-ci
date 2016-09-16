@@ -1,0 +1,27 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: patrickcrocker/cloudfoundry-cli
+    tag: 'latest'
+
+inputs:
+- name: pipeline
+- name: release
+
+outputs:
+- name: prepare-manifest-output
+
+params:
+  CF_ARTIFACT_ID:
+  CF_SPACE:
+  CF_APP_NAME:
+  CF_APP_HOST:
+  CF_APP_SERVICES:
+  CF_INSTANCES:
+
+
+run:
+  path: pipeline/ci/prepare-manifest.sh

@@ -1,0 +1,54 @@
+{
+	"id": "92230767-43f8-2605-2623-e1bea5408d8c",
+	"name": "Pivotal POC - Maven APIs",
+	"description": "",
+	"order": [
+		"a0188a84-dfa4-aedf-953f-a8d3ad601d5d",
+		"5adc307b-19f7-31ca-42f7-31b5db223fee"
+	],
+	"folders": [],
+	"timestamp": 1470844917116,
+	"owner": "",
+	"public": false,
+	"published": false,
+	"requests": [
+		{
+			"id": "5adc307b-19f7-31ca-42f7-31b5db223fee",
+			"headers": "Content-type: application/json\nAuthorization: uas-user {{tokenFromLogin}}\nAccept: application/json\n",
+			"url": "{{mavenBaseUri}}/admin/reservations?pageNumber=1&pageSize=5",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is \" + responseCode.code + \" and should be 200\"] = responseCode.code === 200;\nvar v = postman.getGlobalVariable(\"tokenFromLogin\");\ntests[\"tokenFromLogin is \" + v] = responseCode.code === responseCode.code;\ntests[\"responseBody is \" + responseBody] = responseCode.code === responseCode.code;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1470864983390,
+			"name": "Get Reservations - Page 1 / 100",
+			"description": "",
+			"collectionId": "92230767-43f8-2605-2623-e1bea5408d8c",
+			"responses": []
+		},
+		{
+			"id": "a0188a84-dfa4-aedf-953f-a8d3ad601d5d",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"url": "{{mavenBaseUri}}/login",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Status code is \" + responseCode.code + \" and should be 200\"] = responseCode.code === 200;\nvar jsonData = JSON.parse(responseBody);\npostman.setGlobalVariable(\"tokenFromLogin\", jsonData.data.token);\nvar v = postman.getGlobalVariable(\"tokenFromLogin\");\ntests[\"tokenFromLogin is \" + v] = responseCode.code === responseCode.code;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1470864969339,
+			"name": "Login",
+			"description": "",
+			"collectionId": "92230767-43f8-2605-2623-e1bea5408d8c",
+			"responses": [],
+			"rawModeData": "{\r\n \t\"email\": \"gm-admin@gm.com\",\r\n \t\"password\": \"gm-adm1n\"\r\n}"
+		}
+	]
+}
